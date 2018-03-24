@@ -120,3 +120,4 @@ But what if the first condition returns false?
 
 Condition 2 never gets evaluated. If we know the first condition returns false during evaluation, then there is no need to call the other function. We know the entire condition will be false. 
 
+Create different functions: returnsTrue(), infiniteLoop(), and contradiction(). This is proof by contradiction.
