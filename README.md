@@ -93,6 +93,29 @@ See keygen.js file. Pass as argument the private key (don't include 0x)
 
 create temp.js
 
+	var condition1 = function() {
+		return true
+	}
+	var condition2 = function() {
+		return true
+	}
+	if(condition1() && condition2()) {
+		console.log("The statement is true")
+	}
+
 	> node temp.js
 	The statement is true
+
+add console.log() to functions and check order of evaluation
+
+	> node temp.js
+	Condition 1 is being evaluated
+	Condition 2 is being evaluated
+	The statement is true
+
+But what if the first condition returns false?
+
+
+
+
 

@@ -4,10 +4,12 @@ var halts = function(f) {
 
 // how does javascript evaluate parameters in a conditional expression?
 var condition1 = function() {
+	console.log("Condition 1 is being evaluated")
 	return true
 }
 
 var condition2 = function() {
+	console.log("Condition 2 is being evaluated")
 	return true
 }
 
