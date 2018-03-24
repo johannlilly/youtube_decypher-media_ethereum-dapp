@@ -91,3 +91,8 @@ See keygen.js file. Pass as argument the private key (don't include 0x)
 
 ## [Part 3] - The Halting Problem and Why We Need Gas
 
+create temp.js
+
+	> node temp.js
+	The statement is true
+
