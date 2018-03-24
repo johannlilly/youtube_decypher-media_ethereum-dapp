@@ -115,7 +115,8 @@ add console.log() to functions and check order of evaluation
 
 But what if the first condition returns false?
 
+	> node temp.js
+	Condition 1 is being evaluated
 
-
-
+Condition 2 never gets evaluated. If we know the first condition returns false during evaluation, then there is no need to call the other function. We know the entire condition will be false. 
 
