@@ -62,7 +62,7 @@ Using words that you can remember is called a brain wallet. You remember some te
 
 ### How do you generate a wallet address from a private key?
 
-Use eth-utils library. 
+Use ethereumjs-util library. 
 
 	> node ./keygen.js
 	0:/usr/local/bin/node
