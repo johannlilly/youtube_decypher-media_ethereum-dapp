@@ -13,15 +13,16 @@ Ultimate Intro to Ethereum Ðapp Development [Part 2] - Creating Ethereum Keypai
 
 ## [Part 1] - Provisioning the Development Environment  
 
-> Web3
-{ [Function: Web3]
-  providers: 
-   { HttpProvider: [Function: HttpProvider],
-     IpcProvider: [Function: IpcProvider] } }
-// generate web3 instance
-> var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
-undefined
-> web3.eth.accounts
-(public keys)
+	> Web3
+	{ [Function: Web3]
+	  providers: 
+	   { HttpProvider: [Function: HttpProvider],
+	     IpcProvider: [Function: IpcProvider] } }
+	// generate web3 instance
+	> var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
+	undefined
+	> web3.eth.accounts
+	(public keys)
 
 ## [Part 2] - Creating Ethereum Keypairs
+
