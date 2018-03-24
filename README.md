@@ -88,3 +88,6 @@ See keygen.js file. Pass as argument the private key (don't include 0x)
 ### Other functions using your keypairs
 
 - You can sign arbitrary strings of data with your private key, then verify that it was signed with your private key using the public key. 
+
+## [Part 3] - The Halting Problem and Why We Need Gas
+
