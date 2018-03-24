@@ -49,6 +49,8 @@ SHA can hash any arbitrary string into another string of exactly 64 characters.
 	> web3.sha3("password")
 	'0xb68fe43f0d1a0d7aef123722670be50268e15365401c442f8806ef83b612976b'
 
+> Note: there are better ways of generating entropy than SHA of SHA. For example, using the keythereum library, which has better cryptographic functions. Another is the bip-0032 algorithm, which generates the 12 word phrases. 
+
 No matter how many times you hash the string, the same result will be generated. If you change even one character, you will get a completely different string.
 
 SHA has an interesting use-case for fingerprinting documents. You can generate the SHA hash of a file, then if somebody changes even one character in that string, you will know that somebody altered the file because the SHA hash will be different.
@@ -78,3 +80,11 @@ Use ethereumjs-util library.
 	1:/Users/user/Documents/GitHub/youtube_decypher-media_ethereum-dapp/eth-keypairs/keygen.js
 	2:hello
 
+See keygen.js file. Pass as argument the private key (don't include 0x)
+
+	> node ./keygen b68fe43f0d1a0d7aef123722670be50268e15365401c442f8806ef83b612976b
+	0x9d39856f91822ff0bdc2e234bb0d40124a201677
+
+### Other functions using your keypairs
+
+- You can sign arbitrary strings of data with your private key, then verify that it was signed with your private key using the public key. 

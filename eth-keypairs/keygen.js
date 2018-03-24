@@ -15,3 +15,10 @@ var hexToBytes = function(hex) {
 	return bytes;
 }
 
+// take private key, return address
+var privateKeyToAddress = function(privateKey) {
+	// EthUtil.privateToAddress() takes bytes so need to convert string
+	return `0x${EthUtil.privateToAddress(hexToBytes(privateKey)).toString('hex')}`
+}
+
+console.log(privateKeyToAddress(process.argv[2]))
