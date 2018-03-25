@@ -140,6 +140,3 @@ There is a gas exchange rate determined by miners on the network. You can go to 
 ## [Part 4] - Introduction to Transactions
 
 
-
-
-
