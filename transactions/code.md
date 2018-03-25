@@ -216,3 +216,9 @@ Now, lets inspect the returned data. It is just as we encoded.
   gasPrice: BigNumber { s: 1, e: 10, c: [ 20000000000 ] },
   input: '0x0' }
 
+Check the balances
+
+	> balance(acct1)
+	72.9979
+	> balance(acct2)
+	127
