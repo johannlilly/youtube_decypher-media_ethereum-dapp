@@ -121,3 +121,19 @@ But what if the first condition returns false?
 Condition 2 never gets evaluated. If we know the first condition returns false during evaluation, then there is no need to call the other function. We know the entire condition will be false. 
 
 Create different functions: returnsTrue(), infiniteLoop(), and contradiction(). This is proof by contradiction.
+
+### Ethereum and the halting problem
+
+When Ethereum was first conceived, they had to find a workaround for this halting problem, because the Ethereum Virtual Machine (EVM) allows for arbitrary computation of other people's code. Because it is impossible to statically analyze code and determine whether or not it will terminate in finite time, it led to the very real possibility that the Ethereum network could be DDOS'd very easily by people deploying infinite loops and people wasting computational resources trying to determine if the loops were infinite.
+
+The workaround for this problem is the concept of gas. The code that runs the contracts on the Ethereum network is the bytecode of the Ethereum Virtual Machine. If you're writing contracts in a language like Solidity, its going to compile your contracts down into EVM opcodes.
+
+> The full list of EVM opcodes is defined in the [Ethereum Yellow Paper](https://github.com/ethereum/yellowpaper), or see the [StackExchange list](https://ethereum.stackexchange.com/questions/119/what-opcodes-are-available-for-the-ethereum-evm).
+
+Each opcode has a fixed amount of gas associated with it. Think of it like a fee for each computational step that you execute on the network. For example, taking the SHA3 hash of a string costs 30 gas (as of 2017 November). Generating a transaction, Param GTX, costs 21000 gas. The point is: you pay for your computation. It is the burden of whoever calls the function on the Ethereum network to pay the computational cost of executing that function. This shields the network against DDOS attacks.
+
+### Gas exchange rate
+
+There is a gas exchange rate determined by miners on the network. You can go to [ETHStats](https://ethstats.net) to see a list of statistics about the netowrk in real time, as well as the exchange rate. 
+
+
