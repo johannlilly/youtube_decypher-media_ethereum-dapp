@@ -201,4 +201,18 @@ check RPC to see if transaction went through
 	  Block Number: 5
 	  Block Time: Sun Mar 25 2018 14:48:14 GMT+0200 (CEST)
 
+Now, lets inspect the returned data. It is just as we encoded.
+
+> web3.eth.getTransaction('0x6751ae5f2baef8e23b6d3cc9fd51eb5ef1ebd1a61fe3f5d54b28b12974c8cf10')
+{ hash: '0x6751ae5f2baef8e23b6d3cc9fd51eb5ef1ebd1a61fe3f5d54b28b12974c8cf10',
+  nonce: 4,
+  blockHash: '0xb4ad5599aa4f5700b6f1c4f9af0afea4db5ac22aee5c806846141bf8e1a262bd',
+  blockNumber: 5,
+  transactionIndex: 0,
+  from: '0x597787c52e359de807c0f28ba5c771ba35a123e1',
+  to: '0x32ac9ea47971bc6bc70afe541265b012da7ab404',
+  value: BigNumber { s: 1, e: 19, c: [ 230000 ] },
+  gas: 21000,
+  gasPrice: BigNumber { s: 1, e: 10, c: [ 20000000000 ] },
+  input: '0x0' }
 
