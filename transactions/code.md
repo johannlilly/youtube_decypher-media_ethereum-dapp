@@ -145,18 +145,16 @@ whenever we call a function in our node console, we can see something being logg
 
 These methods that get logged (like eth_getBalance) are the actual RPC methods used in the Ethereum protocol. The web3 javascript library defines an interface into those methods that is a few layers of abstraction above the underlying protocol methods. When you call web3.eth.sendTransaction(), this already knows how to interop with out private keys that are created when testRPC is created. We don't need to sign data manually. But, maybe we would want to do that, such as signing offline. We might want to send a transaction offline. We might want to sign the data that we would otherwise pass in to web3.eth.sendTransaction() using our private key, then transfer that to an online computer for better security, then send the transaction.
 
-ethereumjs-tx requires us to pass data structures to it in the form of a javascript buffer instead of a string. We should have access to the Buffer class by default because we are using node.js.
+ethereumjs-tx requires us to pass data structures to it in the form of a javascript buffer instead of a string. We should have access to the Buffer class by default because we are using node.js. Use the private key of the first account from testRPC.
 
-	> web3.eth.accounts[0]
-	'0x597787c52e359de807c0f28ba5c771ba35a123e1'
-	> var pKey1 = '0x597787c52e359de807c0f28ba5c771ba35a123e1'
+	> var pKey1 = '5fa61fe5ed86b6ae9e5d55439d9a78a7c7b21a71a513e73724eeec742427c3a4'
 	undefined
 	> var EthTx = require("ethereumjs-tx")
 	undefined
 	> var pKey1x = new Buffer(pKey1, 'hex')
 	undefined
 	> pKey1x
-	<Buffer >
+	<Buffer 5f a6 1f e5 ed 86 b6 ae 9e 5d 55 43 9d 9a 78 a7 c7 b2 1a 71 a5 13 e7 37 24 ee ec 74 24 27 c3 a4>
 
 Next, we need to create a raw transaction data structure and sign it with our private key. A *raw transaction data structure* is a JavaScript object with key-value pairs, but we need to encode each integer of that key-value pair into hexidecimal before we sign it.
 
@@ -176,4 +174,31 @@ Next, we need to create a raw transaction data structure and sign it with our pr
 	  gasLimit: '0x5208',
 	  value: '0x13f306a2409fc0000',
 	  data: '' }
+
+next, we need to sign this. 
+
+	> var tx = new EthTx(rawTx)
+	undefined
+	> tx.sign(pKey1x)
+	undefined
+	> tx.serialize().toString('hex')
+	'f86d048504a817c8008252089432ac9ea47971bc6bc70afe541265b012da7ab40489013f306a2409fc0000801ca05295fb07b5a68ddcd1e623eb79e1a9ce51c57eb3c563de27e442b7fb5185bb2ca05b0fd6381266fcb22558f2e9d389d0f2ea390eadf692ef5a10940ffc3ecd9a5d'
+
+That final string -- that signed transaction -- we can pass that around securely. It contains the transaction data. You can create it offline then take it to an online computer to send the transaction. The transaction you use to send the signed transaction is not sendTransaction(), but sendRawTransaction(). You don't pass the serialized transaction string, you send it with 0x in front of it. You get a function as a callback that includes either an error or data from the network. 
+
+	> web3.eth.sendRawTransaction(`0x${tx.serialize().toString('hex')}`, (error, data) => {
+	... if(!error) {console.log(data) }
+	... })
+	undefined
+	> 0x6751ae5f2baef8e23b6d3cc9fd51eb5ef1ebd1a61fe3f5d54b28b12974c8cf10
+
+check RPC to see if transaction went through
+
+	eth_sendRawTransaction
+
+	  Transaction: 0x6751ae5f2baef8e23b6d3cc9fd51eb5ef1ebd1a61fe3f5d54b28b12974c8cf10
+	  Gas usage: 21000
+	  Block Number: 5
+	  Block Time: Sun Mar 25 2018 14:48:14 GMT+0200 (CEST)
+
 
