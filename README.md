@@ -8,6 +8,7 @@ by Decypher Media
 - [Ultimate Introduction to Ethereum Ðapp Development](https://www.youtube.com/playlist?list=PLV1JDFUtrXpFh85G-Ddyy2kLSafaB9biQ) [playlist]
 - [Ultimate Intro to Ethereum Ðapp Development [Part 1] - Provisioning the Development Environment](https://youtu.be/rmtsh7Q7sbE)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 2] - Creating Ethereum Keypairs](https://youtu.be/YWoBeoTUrYM)
+- [Ultimate Intro to Ethereum Ðapp Development [Part 4] - Introduction to Transactions](https://youtu.be/-5LhwoCcjp0)
 
 Ultimate Intro to Ethereum Ðapp Development [Part 2] - Creating Ethereum Keypairs
 
@@ -135,5 +136,7 @@ Each opcode has a fixed amount of gas associated with it. Think of it like a fee
 ### Gas exchange rate
 
 There is a gas exchange rate determined by miners on the network. You can go to [ETHStats](https://ethstats.net) to see a list of statistics about the netowrk in real time, as well as the exchange rate. 
+
+## [Part 4] - Introduction to Transactions
 
 
