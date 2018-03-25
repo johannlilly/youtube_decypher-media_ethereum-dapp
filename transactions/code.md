@@ -134,3 +134,46 @@ the transaction is also rejected if the nonce is not incremented by 1
 Every transaction that gets put on the blockchain must have the correct sequential nonce
 
 
+## Dive further into transactions and customize them
+
+whenever we call a function in our node console, we can see something being logged in our testRPC console. 
+
+	> balance(acct1)
+	95.99832
+
+	eth_getBalance
+
+These methods that get logged (like eth_getBalance) are the actual RPC methods used in the Ethereum protocol. The web3 javascript library defines an interface into those methods that is a few layers of abstraction above the underlying protocol methods. When you call web3.eth.sendTransaction(), this already knows how to interop with out private keys that are created when testRPC is created. We don't need to sign data manually. But, maybe we would want to do that, such as signing offline. We might want to send a transaction offline. We might want to sign the data that we would otherwise pass in to web3.eth.sendTransaction() using our private key, then transfer that to an online computer for better security, then send the transaction.
+
+ethereumjs-tx requires us to pass data structures to it in the form of a javascript buffer instead of a string. We should have access to the Buffer class by default because we are using node.js.
+
+	> web3.eth.accounts[0]
+	'0x597787c52e359de807c0f28ba5c771ba35a123e1'
+	> var pKey1 = '0x597787c52e359de807c0f28ba5c771ba35a123e1'
+	undefined
+	> var EthTx = require("ethereumjs-tx")
+	undefined
+	> var pKey1x = new Buffer(pKey1, 'hex')
+	undefined
+	> pKey1x
+	<Buffer >
+
+Next, we need to create a raw transaction data structure and sign it with our private key. A *raw transaction data structure* is a JavaScript object with key-value pairs, but we need to encode each integer of that key-value pair into hexidecimal before we sign it.
+
+	> var rawTx = {
+	... nonce: web3.toHex(web3.eth.getTransactionCount(acct1)),
+	... to: acct2,
+	... gasPrice: web3.toHex(20000000000),
+	... gasLimit: web3.toHex(21000),
+	... value: web3.toHex(web3.toWei(23, 'ether')),
+	... data: ""
+	... }
+	undefined
+	> rawTx
+	{ nonce: '0x4',
+	  to: '0x32ac9ea47971bc6bc70afe541265b012da7ab404',
+	  gasPrice: '0x4a817c800',
+	  gasLimit: '0x5208',
+	  value: '0x13f306a2409fc0000',
+	  data: '' }
+
