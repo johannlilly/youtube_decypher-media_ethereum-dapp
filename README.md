@@ -8,9 +8,9 @@ by Decypher Media
 - [Ultimate Introduction to Ethereum Ðapp Development](https://www.youtube.com/playlist?list=PLV1JDFUtrXpFh85G-Ddyy2kLSafaB9biQ) [playlist]
 - [Ultimate Intro to Ethereum Ðapp Development [Part 1] - Provisioning the Development Environment](https://youtu.be/rmtsh7Q7sbE)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 2] - Creating Ethereum Keypairs](https://youtu.be/YWoBeoTUrYM)
+- [Ultimate Intro to Ethereum Ðapp Development [Part 3] - The Halting Problem and Why We Need Gas](https://youtu.be/eyh4g0XPX9Q)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 4] - Introduction to Transactions](https://youtu.be/-5LhwoCcjp0)
-
-Ultimate Intro to Ethereum Ðapp Development [Part 2] - Creating Ethereum Keypairs
+- [Ultimate Intro to Ethereum Ðapp Development [Part 5] - Sending Transactions with User Interfaces](https://youtu.be/fagSvhbSk1k)
 
 ## [Part 1] - Provisioning the Development Environment  
 
@@ -145,11 +145,11 @@ instantiate
 
 	> var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
 
-confirm: get private keys
+confirm: get accounts
 
 	> web3.eth.accounts
 
-get private key of first account
+get wallet address of first account
 
 	> web3.eth.accounts[0]
 
@@ -366,3 +366,5 @@ Check the balances
 	72.9979
 	> balance(acct2)
 	127
+
+## [Part 5] - Sending Transactions with User Interfaces
