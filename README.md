@@ -11,6 +11,7 @@ by Decypher Media
 - [Ultimate Intro to Ethereum Ðapp Development [Part 3] - The Halting Problem and Why We Need Gas](https://youtu.be/eyh4g0XPX9Q)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 4] - Introduction to Transactions](https://youtu.be/-5LhwoCcjp0)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 5] - Sending Transactions with User Interfaces](https://youtu.be/fagSvhbSk1k)
+- [Ultimate Intro to Ethereum Ðapp Development [Part 6] - Sending Transactions with Code](https://www.youtube.com/watch?v=BFEzWYFZ7wA&index=6&list=PLV1JDFUtrXpFh85G-Ddyy2kLSafaB9biQ)
 
 ## [Part 1] - Provisioning the Development Environment  
 
@@ -368,3 +369,29 @@ Check the balances
 	127
 
 ## [Part 5] - Sending Transactions with User Interfaces
+
+https://www.myetherwallet.com/
+
+https://ropsten.etherscan.io/
+
+https://metamask.io
+
+## [Part 6] - Sending Transactions with Code
+
+Easily exchange one digital currency for another: [https://shapeshift.io](https://shapeshift.io)
+
+Interact with the EVM using a Chrome extension: [https://metamask.io/](https://metamask.io/)
+
+Interact directly with the EVM using a website interface / GUI: [https://www.myetherwallet.com](https://www.myetherwallet.com)
+
+Ethereum transactions and balances: [https://etherscan.io](https://etherscan.io)
+
+Ethereum - Ropsten - Faucet
+http://faucet.ropsten.be:3001/
+
+Jaxx: Our digital asset wallet, Jaxx, was created in 2014 by Ethereum co-founder Anthony Diiorio. We now have dozens of blockchain tokens available and a wallet that runs on iOS, Android, Windows, Mac, and other platforms: [https://jaxx.io/](https://jaxx.io/).
+
+INFURA: Our easy to use API and developer tools provide secure, reliable, and scalable access to Ethereum and IPFS (InterPlanetary File System). We provide the infrastructure for your decentralized applications so you can focus on the features. Connect to the Ethereum main net with node: [https://infura.io/](https://infura.io/)
+
+BlockCypher: APIs for interacting with both Ethereum and Bitcoin blockchain. It gives us more in-depth ways of interacting with the Ethereum network than webRTC. You can use it to send ETH transactions from your command line using the curl command: [https://www.blockcypher.com/](https://www.blockcypher.com/)
+
