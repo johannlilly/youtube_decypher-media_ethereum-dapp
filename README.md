@@ -12,6 +12,7 @@ by Decypher Media
 - [Ultimate Intro to Ethereum Ðapp Development [Part 4] - Introduction to Transactions](https://youtu.be/-5LhwoCcjp0)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 5] - Sending Transactions with User Interfaces](https://youtu.be/fagSvhbSk1k)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 6] - Sending Transactions with Code](https://www.youtube.com/watch?v=BFEzWYFZ7wA&index=6&list=PLV1JDFUtrXpFh85G-Ddyy2kLSafaB9biQ)
+- [Ultimate Intro to Ethereum Ðapp Development [Part 7] - Smart Contracts - Hello World](https://youtu.be/cRg2m2A2NGM)
 
 ## [Part 1] - Provisioning the Development Environment  
 
@@ -395,3 +396,4 @@ INFURA: Our easy to use API and developer tools provide secure, reliable, and sc
 
 BlockCypher: APIs for interacting with both Ethereum and Bitcoin blockchain. It gives us more in-depth ways of interacting with the Ethereum network than webRTC. You can use it to send ETH transactions from your command line using the curl command: [https://www.blockcypher.com/](https://www.blockcypher.com/)
 
+## [Part 7] - Smart Contracts - Hello World
