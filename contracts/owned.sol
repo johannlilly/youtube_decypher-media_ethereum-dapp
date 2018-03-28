@@ -17,8 +17,8 @@ contract helloworld is owned {
 
 	string public message;
 
-	function string setMessage(string _message) onlyOwner() {
+	function setMessage(string _message) onlyOwner() {
 		message = _message;
 	}
-	
+
 }

@@ -1,2 +1,55 @@
 # [Part 11] - Contract Inheritance
 
+## separate contracts
+
+	> var source = `
+	... contract owned {
+	...
+	...     address public owner;
+	...
+	...     function owned() {
+	...         owner = msg.sender;
+	...     }
+	...
+	...     modifier onlyOwner() {
+	...         if(msg.sender == owner) {
+	.....             _;
+	.....         }
+	...     }
+	... }
+	...
+	... contract helloworld is owned {
+	...
+	...     string public message;
+	...
+	...     function setMessage(string _message) onlyOwner() {
+	...         message = _message;
+	...     }
+	...
+	... }
+	... `
+	undefined
+	> var deployed = decypher.createContract(source)
+	undefined
+
+## prove functionality is being inherited from another contract
+
+	> var deployed = decypher.createContract(source)
+	undefined
+	> deployed.owner.call()
+	'0xbba627fba18f285597e89a2eec3a4274c1d033ce'
+	> acct1
+	'0xbba627fba18f285597e89a2eec3a4274c1d033ce'
+	> deployed.message.call()
+	''
+	> deployed.setMessage("hello, world!", {from: acct1})
+	'0xaf195b4560315afac0bd91cf9dd0287b0938d69fa9f01ba13a1642af3ad6c1b0'
+	> deployed.message.call()
+	'hello, world!'
+	> deployed.setMessage("hello, something different", {from: acct2})
+	'0x8b944db9c0f29f588e3a0bacdb1bc7a1668ad230c10deb1a81e5c3757bc9ea05'
+	> deployed.message.call()
+	'hello, world!'
+
+Account 2 is not able to set the message because it is not the owner. Therefore, the helloworld contract is inheriting functionality from the owned contract. 
+
