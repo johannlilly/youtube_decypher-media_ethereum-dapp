@@ -937,4 +937,37 @@ The next part of the contract is we flip a coin and send 10 ETH to the result of
 
 > notice a particular piece of information: the block hash.
 
-The *block hash* is a 64-digit string that is highly random. It is a hash of multiple pieces of information, including the transactions that were mined into the block. If you access the block hash, you have something that is random enough that you could manipulate it in some way to act as a random number for the purpose of our contract. You can't get the hash of the current block the function is being called in, because that block is continuing to be made up of transaction data. But you can access the hash of previous mined blocks. 
+The *block hash* is a 64-digit string that is highly random. It is a hash of multiple pieces of information, including the transactions that were mined into the block. If you access the block hash, you have something that is random enough that you could manipulate it in some way to act as a random number for the purpose of our contract. You can't get the hash of the current block the function is being called in, because that block is continuing to be made up of transaction data. But you can access the hash of previous mined blocks.
+
+2 ^ 256) / 2 = 57896044618658097711785492504343953926634992332820282019728792003956564819968
+
+	> var deployed = decypher.deployContract("flipper")
+	undefined
+	> deployed.makeWager({from: acct1, value: web3.toWei(25, 'ether')})
+	'0x10d39bd82f6f2f29db82f192383c402d030d232ba91f9d6239173c914ef14757'
+	> deployed.currentState.call()
+	BigNumber { s: 1, e: 0, c: [ 1 ] }
+	> deployed.acceptWager({from: acct2, value: web3.toWei(25, 'ether')})
+	'0xb787dc8bc43ecae1319b1dfbf93833c4d3c4dd0660db78832d617b1037061be3'
+	> deployed.currentState.call()
+	BigNumber { s: 1, e: 0, c: [ 2 ] }
+	> decypher.etherBalance(acct1)
+	43.02901999998693
+	> decypher.etherBalance(acct2)
+	82.89999999999984
+	> decypher.etherBalance(deployed)
+	50
+	> deployed.resolveBet({from: acct1})
+	'0x86e654e9f20148b680820eb96b5a9bb9ba211f54edc5275d5d69e87091c23ad3'
+	> deployed.currentState.call()
+	BigNumber { s: 1, e: 0, c: [ 0 ] }
+	> decypher.etherBalance(deployed)
+	0
+	> decypher.etherBalance(acct1)
+	93.02901999998691
+	> decypher.etherBalance(acct2)
+	82.89999999999984
+
+Account 1 won.
+
+> my numbers aren't exactly the same as in the video, I swapped ETH between accounts more than in the video.
