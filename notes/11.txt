@@ -32,7 +32,7 @@
 	> var deployed = decypher.createContract(source)
 	undefined
 
-## prove functionality is being inherited from another contract
+## prove functionality is being inherited from another contract within the same file
 
 	> var deployed = decypher.createContract(source)
 	undefined
@@ -53,3 +53,4 @@
 
 Account 2 is not able to set the message because it is not the owner. Therefore, the helloworld contract is inheriting functionality from the owned contract. 
 
+## Use modifier from one contract in another contract in separate files

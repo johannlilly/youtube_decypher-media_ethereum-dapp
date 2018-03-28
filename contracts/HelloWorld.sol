@@ -1,5 +1,9 @@
-contract HelloWorld {
-	function displayMessage() constant returns (string) {
-		return "Hello from a smart contract";
+contract helloworld is owned {
+
+	string public message;
+
+	function setMessage(string _message) onlyOwner() {
+		message = _message;
 	}
+
 }
