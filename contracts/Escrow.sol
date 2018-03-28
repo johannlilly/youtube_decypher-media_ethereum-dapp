@@ -14,11 +14,15 @@ contract Escrow {
 	// send current balance of escrow contract to the seller
 	function payourToSeller() {
 		// send amount of ETH defined to the account that is calling it
-		seller.send(this.balance);
+		if(msg.sender == buyer || msg.sender == arbiter) {
+			seller.send(this.balance);
+		}
 	}
 
 	function refundToBuyer() {
-		buyer.send(this.balance);
+		if(msg.sender == seller || msg.sender == arbiter) {
+			buyer.send(this.balance);
+		}
 	}
 
 }

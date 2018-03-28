@@ -644,3 +644,6 @@ send ether to deployed address the same way you would send to a normal ethereum 
 	}
 
 As it is, anybody with the abi can access these functions. 
+
+#### secure who can access functions
+
