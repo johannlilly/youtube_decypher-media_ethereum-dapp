@@ -15,6 +15,7 @@ by Decypher Media
 - [Ultimate Intro to Ethereum Ðapp Development [Part 7] - Smart Contracts - Hello World](https://youtu.be/cRg2m2A2NGM)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 8] - Smart Contracts - Escrow](https://youtu.be/EbWKtDPFPz8)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 9] - Smart Contracts - Coin Flipper (1/2)](https://youtu.be/OFPBSKd6us8)
+- [Ultimate Intro to Ethereum Ðapp Development [Part 10] - Smart Contracts - Coin Flipper (2/2)](https://youtu.be/dq-gBPvDgrc)
 
 ## [Part 1] - Provisioning the Development Environment  
 
@@ -828,4 +829,6 @@ make a jump you are not allowed to make:
 
 	> deployed.resolveBet({from: acct1})
 	Error: VM Exception while processing transaction: revert
+
+## [Part 10] - Smart Contracts - Coin Flipper (2/2)
 
