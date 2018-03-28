@@ -506,10 +506,16 @@ By using 'public,'' you are creating an accessor method that anybody who knows t
 
 A constructor is a function that has the same name as name of contract. It runs once and only once: upon creation of the contract, and never again. This is where you deal with initialization. 
 
+#### constructor arguments
+
+The constructor can take statically-typed arguments. These variables are defined upon creation of the contract. In our example, set the state and arbiter variables to the arguments passed to the constructor. 
+
 ### msg object
 
 msg object contains information about the transaction that is calling into the current contract. In the case of a constructor function, the transaction calling into is also the transaction that is creating the function.
 
 #### msg.sender
 
-Access the address of whoever is calling the contract  
+Access the address of whoever is calling the contract 
+
+
