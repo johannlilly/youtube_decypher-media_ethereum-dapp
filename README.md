@@ -901,5 +901,40 @@ Try sending the correct amount.
 	> decypher.etherBalance(deployed.address)
 	10
 
-The next part of the contract is we flip a coin and send 10 ETH to the result of the coint flip.
+The next part of the contract is we flip a coin and send 10 ETH to the result of the coint flip. We need to model randomness, but it is tricky on the blockchain.
 
+
+### background info on randomness
+
+#### find current block
+
+	> web3.eth.blockNumber
+	188
+
+#### get information about a current block
+
+	> web3.eth.getBlock(188)
+	{ number: 188,
+	  hash: '0x6ca6d8c9483dd890fbc9848f89ed8e0d67fd8ae1ee34c0d45263044f97ecee48',
+	  parentHash: '0xc634594a3c7c990cdc64e585acd87b5ca7ffd8116d6608646a5772db9e22b405',
+	  nonce: '0x0',
+	  sha3Uncles: '0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347',
+	  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+	  transactionsRoot: '0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421',
+	  stateRoot: '0xcf7f3b60d348e5ff1c03dfba7009c7e8d80e56faa2d6d65ce96615a98177511f',
+	  receiptsRoot: '0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421',
+	  miner: '0x0000000000000000000000000000000000000000',
+	  difficulty: BigNumber { s: 1, e: 0, c: [ 0 ] },
+	  totalDifficulty: BigNumber { s: 1, e: 0, c: [ 0 ] },
+	  extraData: '0x0',
+	  size: 1000,
+	  gasLimit: 6721975,
+	  gasUsed: 47688,
+	  timestamp: 1522261996,
+	  transactions:
+	   [ '0xb88d39fb51d677d5a5087dc00e03d4c5217a7db181bf1e22f64dd859df885fd5' ],
+	  uncles: [] }
+
+> notice a particular piece of information: the block hash.
+
+The *block hash* is a 64-digit string that is highly random. It is a hash of multiple pieces of information, including the transactions that were mined into the block. If you access the block hash, you have something that is random enough that you could manipulate it in some way to act as a random number for the purpose of our contract. You can't get the hash of the current block the function is being called in, because that block is continuing to be made up of transaction data. But you can access the hash of previous mined blocks. 
