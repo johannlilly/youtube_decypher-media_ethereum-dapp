@@ -775,3 +775,34 @@ The value field is the amount of ETH we want to send to the contract upon creati
 enum is a fixed set of values that a variable can have. Any other value that a variable of type GameState has will be invalid.
 
 > Be careful when passing a string as an argument in Solidity. You declare it as datatype bytes32. 
+
+	> var deployed = decypher.deployContract("flipper")
+	undefined
+	> deployed.address
+	'0x225fb4af9b8876466617020e5bf2f0672686bca9'
+	> deployed.currentState.call()
+	BigNumber { s: 1, e: 0, c: [ 0 ] }
+
+c: [0] represents a state of index 0 in the GameState, which is 'noWager.'
+
+	> deployed.transitionGameState("wagerMade", {from: acct1})
+	'0x0640b73ab9a3b8b4e6b2f020d1269da56c8487efab912f7b26f4c19715ecc208'
+
+call invalid game state: still in state 1 (as in, wagerMade)
+
+	> deployed.transitionGameState("xyz", {from: acct1})
+	'0x144787f48050531daff7d8a7a95629549e6c37886b465b2b3fd53216ab776d3e'
+	> deployed.currentState.call()
+	BigNumber { s: 1, e: 0, c: [ 1 ] }
+
+
+valid GameState:
+
+	> deployed.transitionGameState("wagerAccepted", {from: acct1})
+	'0xb0dd931a9ffbd128d08207cdff995e1c6a91d6ba5b67da8facc95754d53d7b4d'
+	> deployed.currentState.call()
+	BigNumber { s: 1, e: 0, c: [ 2 ] }
+
+### state order using modifiers
+
+We don't want to change state out of order, or when certain conditions haven't yet been met. Use a modifier. A *modifier* is a way for you to put reusable code into function definitions that can ensure some sort of data is valid before proceeding with the function. 
