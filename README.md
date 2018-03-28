@@ -608,4 +608,39 @@ Query this for publicly accessible methods, then confirm by checking the buyer o
 	'0xbba627fba18f285597e89a2eec3a4274c1d033ce'
 	> buyer
 	'0xbba627fba18f285597e89a2eec3a4274c1d033ce'
+	> deployed.seller.call()
+	'0x4b4d1f8fad9d546f2979831a3e527489bb52f24a'
+	> seller
+	'0x4b4d1f8fad9d546f2979831a3e527489bb52f24a'
+	> deployed.arbiter.call()
+	'0x3eecacbefe89fef4d6dbd9fe0bdcd39e5895f58b'
+	> arbiter
+	'0x3eecacbefe89fef4d6dbd9fe0bdcd39e5895f58b'
 
+### Implement contract logic
+
+A contract address can store a balance in ether the same way that a normal Ethereum address can. Add back in a shorthand function to check the balance of an account.
+
+	> var balance = (acct) => { return web3.fromWei(web3.eth.getBalance(acct), 'ether').toNumber() }
+	undefined
+
+check balance of contract
+
+	> balance(buyer)
+	83.02901999999867
+	> balance(deployed.address)
+	0
+
+send ether to deployed address the same way you would send to a normal ethereum address.
+
+	// send current balance of escrow contract to the seller
+	function payourToSeller() {
+		// send amount of ETH defined to the account that is calling it
+		seller.send(this.balance);
+	}
+
+	function refundToBuyer() {
+		buyer.send(this.balance);
+	}
+
+As it is, anybody with the abi can access these functions. 
