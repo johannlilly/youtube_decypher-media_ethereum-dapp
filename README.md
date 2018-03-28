@@ -497,3 +497,19 @@ here is the contract file:
 ## [Part 8] - Smart Contracts - Escrow
 
 Contracts can have state that they store inside the contract and persist in the blockchain.
+
+### public keyword
+
+By using 'public,'' you are creating an accessor method that anybody who knows the address of the contract address can query for the state of that variable at any time.
+
+### Constructor
+
+A constructor is a function that has the same name as name of contract. It runs once and only once: upon creation of the contract, and never again. This is where you deal with initialization. 
+
+### msg object
+
+msg object contains information about the transaction that is calling into the current contract. In the case of a constructor function, the transaction calling into is also the transaction that is creating the function.
+
+#### msg.sender
+
+Access the address of whoever is calling the contract  
