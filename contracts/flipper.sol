@@ -20,10 +20,14 @@ contract Flipper {
 		return true;
 	}
 
-	function acceptWager() onlyState(GameState.wagerMade) returns (bool) {
-		// ...
-		currentState = GameState.wagerAccepted;
-		return true;
+	function acceptWager() onlyState(GameState.wagerMade) payable returns (bool) {
+		if(msg.value == wager) {
+			player2 = msg.sender;
+			currentState = GameState.wagerAccepted;
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	function resolveBet() onlyState(GameState.wagerAccepted) returns (bool) {

@@ -845,4 +845,33 @@ If you want a function to be able to accept ether and use it in the function, yo
 	> decypher.etherBalance(deployed.address)
 	5
 
-We want to make sure that player 2 is sending the correct amount of Ether beforehand. 
+We want to make sure that player 2 is sending the correct amount of Ether beforehand, before modifying the game state.
+
+	> var deployed = decypher.deployContract("flipper")
+	undefined
+	> deployed.currentState.call()
+	BigNumber { s: 1, e: 0, c: [ 0 ] }
+	> deployed.makeWager({from: acct1, value: web3.toWei(5, 'ether')})
+	'0x70e244697d1da2da21a77caef74bbc9144c43a2088af327e4f9013d95eb31182'
+	> deployed.currentState.call()
+	BigNumber { s: 1, e: 0, c: [ 1 ] }
+	> decypher.etherBalance(deployed.address)
+	5
+
+Our current code lets ETH be taken.
+
+	> decypher.etherBalance(acct2)
+	100
+	> deployed.acceptWager({from: acct2, value: web3.toWei(4, 'ether')})
+	'0x9f2798e597ae0a7199126d5e78e0ecdfe50c17edd780803d421a72ee0c89d390'
+	> decypher.etherBalance()
+	undefined
+	> decypher.etherBalance(acct2)
+	95.99999999999997
+
+it was sent to the contract
+
+	> decypher.etherBalance(deployed.address)
+	9
+
+This is where throw() comes in.
