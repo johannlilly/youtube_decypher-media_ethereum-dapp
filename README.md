@@ -874,7 +874,7 @@ it was sent to the contract
 	> decypher.etherBalance(deployed.address)
 	9
 
-This is where throw() comes in. Now, we get an exception. Gas is consumed.
+This is where throw() comes in. When the wrong amount is sent, we get an exception. Gas is consumed.
 
 	> var deployed = decypher.deployContract("flipper")
 	undefined
@@ -887,4 +887,19 @@ This is where throw() comes in. Now, we get an exception. Gas is consumed.
 	> decypher.etherBalance(acct2)
 	95.99999999999997
 
+
+Try sending the correct amount.
+
+	> decypher.etherBalance(acct2)
+	95.99999999999989
+	> deployed.acceptWager({from: acct2, value: web3.toWei(5, 'ether')})
+	'0xb88d39fb51d677d5a5087dc00e03d4c5217a7db181bf1e22f64dd859df885fd5'
+	> decypher.etherBalance(acct2)
+	90.99999999999984
+	> deployed.currentState.call()
+	BigNumber { s: 1, e: 0, c: [ 2 ] }
+	> decypher.etherBalance(deployed.address)
+	10
+
+The next part of the contract is we flip a coin and send 10 ETH to the result of the coint flip.
 
