@@ -1,3 +1,5 @@
+import "./owned.sol"
+
 contract helloworld is owned {
 
 	string public message;
