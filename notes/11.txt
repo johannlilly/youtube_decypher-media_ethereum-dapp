@@ -54,3 +54,9 @@
 Account 2 is not able to set the message because it is not the owner. Therefore, the helloworld contract is inheriting functionality from the owned contract. 
 
 ## Use modifier from one contract in another contract in separate files
+
+	import "./owned.sol"
+
+## mortal.sol
+
+Mortal is like the owned contract, except it also includes the function kill(), which calls selfdestruct().

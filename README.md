@@ -973,5 +973,4 @@ Account 1 won.
 
 > my numbers aren't exactly the same as in the video, I swapped ETH between accounts more than in the video.
 
-## [Part 11] - Contract Inheritance
 
