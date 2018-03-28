@@ -14,6 +14,7 @@ by Decypher Media
 - [Ultimate Intro to Ethereum Ðapp Development [Part 6] - Sending Transactions with Code](https://www.youtube.com/watch?v=BFEzWYFZ7wA&index=6&list=PLV1JDFUtrXpFh85G-Ddyy2kLSafaB9biQ)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 7] - Smart Contracts - Hello World](https://youtu.be/cRg2m2A2NGM)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 8] - Smart Contracts - Escrow](https://youtu.be/EbWKtDPFPz8)
+- [Ultimate Intro to Ethereum Ðapp Development [Part 9] - Smart Contracts - Coin Flipper (1/2)](https://youtu.be/OFPBSKd6us8)
 
 ## [Part 1] - Provisioning the Development Environment  
 
@@ -769,3 +770,8 @@ The value field is the amount of ETH we want to send to the contract upon creati
 
 
 
+## [Part 9] - Smart Contracts - Coin Flipper (1/2)
+
+enum is a fixed set of values that a variable can have. Any other value that a variable of type GameState has will be invalid.
+
+> Be careful when passing a string as an argument in Solidity. You declare it as datatype bytes32. 
