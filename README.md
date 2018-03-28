@@ -874,4 +874,17 @@ it was sent to the contract
 	> decypher.etherBalance(deployed.address)
 	9
 
-This is where throw() comes in.
+This is where throw() comes in. Now, we get an exception. Gas is consumed.
+
+	> var deployed = decypher.deployContract("flipper")
+	undefined
+	> deployed.makeWager({from: acct1, value: web3.toWei(5, 'ether')})
+	'0x56ed0be57fbd32bb12c795d7bf4c9fd85796c61079b311036866c538f7797bbb'
+	> decypher.etherBalance(acct2)
+	95.99999999999997
+	> deployed.acceptWager({from: acct2, value: web3.toWei(4, 'ether')})
+	Error: VM Exception while processing transaction: revert
+	> decypher.etherBalance(acct2)
+	95.99999999999997
+
+
