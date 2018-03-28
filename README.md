@@ -13,6 +13,7 @@ by Decypher Media
 - [Ultimate Intro to Ethereum Ðapp Development [Part 5] - Sending Transactions with User Interfaces](https://youtu.be/fagSvhbSk1k)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 6] - Sending Transactions with Code](https://www.youtube.com/watch?v=BFEzWYFZ7wA&index=6&list=PLV1JDFUtrXpFh85G-Ddyy2kLSafaB9biQ)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 7] - Smart Contracts - Hello World](https://youtu.be/cRg2m2A2NGM)
+- [Ultimate Intro to Ethereum Ðapp Development [Part 8] - Smart Contracts - Escrow](https://youtu.be/EbWKtDPFPz8)
 
 ## [Part 1] - Provisioning the Development Environment  
 
@@ -491,4 +492,7 @@ here is the contract file:
 
 	> deployed.displayMessage.call()
 	'Hello from a smart contract'
+
+
+## [Part 8] - Smart Contracts - Escrow
 
