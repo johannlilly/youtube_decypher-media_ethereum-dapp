@@ -812,3 +812,20 @@ When writing the code for a modifier, when you include *_;* in a code block, you
 #### throw
 
 All state transitions (from a transaction) are atomic. Everything within a code block must be true for the block to work. You can't have a partial update. It all succeeds or fails together. *Throw* drains the transaction of all of its gas so that none of the state transitions are valid, so the entire thing is as if it never happened. 
+
+### attempt changing state
+
+	> var deployed = decypher.deployContract("flipper")
+	undefined
+	> deployed.currentState.call()
+	BigNumber { s: 1, e: 0, c: [ 0 ] }
+	> deployed.makeWager({from: acct1})
+	'0x79005ec9864fd6187c45f4ab999b7e9dba632a226811195570f44076e236e081'
+	> deployed.currentState.call()
+	BigNumber { s: 1, e: 0, c: [ 1 ] }
+
+make a jump you are not allowed to make:
+
+	> deployed.resolveBet({from: acct1})
+	Error: VM Exception while processing transaction: revert
+
