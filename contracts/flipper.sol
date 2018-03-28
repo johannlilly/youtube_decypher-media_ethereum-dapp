@@ -3,6 +3,9 @@ contract Flipper {
 	enum GameState {noWager, wagerMade, wagerAccepted}
 	// declare variable of type GameState
 	GameState public currentState;
+	uint public wager;
+	address public player1;
+	address public player2;
 
 	modifier onlyState(GameState expectedState) {if(expectedState == currentState) {_;} else {throw;}}
 
@@ -10,8 +13,9 @@ contract Flipper {
 		currentState = GameState.noWager;
 	}
 
-	function makeWager() onlyState(GameState.noWager) returns (bool) {
-		// ,,,
+	function makeWager() onlyState(GameState.noWager) payable returns (bool) {
+		wager = msg.value;
+		player1 = msg.sender;
 		currentState = GameState.wagerMade;
 		return true;
 	}
@@ -27,5 +31,5 @@ contract Flipper {
 		currentState = GameState.noWager;
 		return true;
 	}
-	
+
 }

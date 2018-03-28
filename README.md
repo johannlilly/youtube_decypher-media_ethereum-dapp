@@ -832,3 +832,17 @@ make a jump you are not allowed to make:
 
 ## [Part 10] - Smart Contracts - Coin Flipper (2/2)
 
+If you define a value in the object when you are making a transaction to a contract, that value of ether will get passed into the contract that you can then access in the msg.value property.
+
+### payable
+
+If you want a function to be able to accept ether and use it in the function, you need to define that the function is payable using the *payable* keyword in the function definition. 
+
+	> var deployed = decypher.deployContract("flipper")
+	undefined
+	> deployed.makeWager({from: acct1, value: web3.toWei(5, 'ether')})
+	'0xf8aa41827f02c2c3f5aa200570bf3e25600e5e3123b6ea2a377d448f2450b4bf'
+	> decypher.etherBalance(deployed.address)
+	5
+
+We want to make sure that player 2 is sending the correct amount of Ether beforehand. 
