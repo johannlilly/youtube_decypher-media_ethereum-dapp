@@ -25,4 +25,9 @@ contract Escrow {
 		}
 	}
 
+	// accessor function
+	function getBalance() constant returns (uint) {
+		return this.balance;
+	}
+
 }

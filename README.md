@@ -647,3 +647,125 @@ As it is, anybody with the abi can access these functions.
 
 #### secure who can access functions
 
+		if(msg.sender == buyer || msg.sender == arbiter) {}
+
+### compile
+
+	> var source = `
+	... contract Escrow {
+	...
+	...     address public buyer;
+	...     address public seller;
+	...     address public arbiter;
+	...
+	...     // constructor
+	...     function Escrow(address _seller, address _arbiter) {
+	...         buyer = msg.sender; // assume the buyer is creating this Escrow contract
+	...         seller = _seller; // set the state variable of seller to the argument
+	...         arbiter = _arbiter; // set the state variable of arbiter to the argument
+	...     }
+	...
+	...     // send current balance of escrow contract to the seller
+	...     function payourToSeller() {
+	...         // send amount of ETH defined to the account that is calling it
+	...         if(msg.sender == buyer || msg.sender == arbiter) {
+	.....             seller.send(this.balance);
+	.....         }
+	...     }
+	...
+	...     function refundToBuyer() {
+	...         if(msg.sender == seller || msg.sender == arbiter) {
+	.....             buyer.send(this.balance);
+	.....         }
+	...     }
+	...
+	...     // accessor function
+	...     function getBalance() constant returns (uint) {
+	...         return this.balance;
+	...     }
+	...
+	... }
+	... `
+	undefined
+	> var compiled = solc.compile(source)
+	undefined
+	> var bytecode = compiled.contracts[":Escrow"].bytecode
+	undefined
+	> var abi = JSON.parse(compiled.contracts[":Escrow"].interface)
+	undefined
+
+	> var escrowContract = web3.eth.contract(abi)
+	undefined
+	> abi
+	[ { constant: true,
+	    inputs: [],
+	    name: 'seller',
+	    outputs: [ [Object] ],
+	    payable: false,
+	    stateMutability: 'view',
+	    type: 'function' },
+	  { constant: true,
+	    inputs: [],
+	    name: 'getBalance',
+	    outputs: [ [Object] ],
+	    payable: false,
+	    stateMutability: 'view',
+	    type: 'function' },
+	  { constant: false,
+	    inputs: [],
+	    name: 'payourToSeller',
+	    outputs: [],
+	    payable: false,
+	    stateMutability: 'nonpayable',
+	    type: 'function' },
+	  { constant: false,
+	    inputs: [],
+	    name: 'refundToBuyer',
+	    outputs: [],
+	    payable: false,
+	    stateMutability: 'nonpayable',
+	    type: 'function' },
+	  { constant: true,
+	    inputs: [],
+	    name: 'buyer',
+	    outputs: [ [Object] ],
+	    payable: false,
+	    stateMutability: 'view',
+	    type: 'function' },
+	  { constant: true,
+	    inputs: [],
+	    name: 'arbiter',
+	    outputs: [ [Object] ],
+	    payable: false,
+	    stateMutability: 'view',
+	    type: 'function' },
+	  { inputs: [ [Object], [Object] ],
+	    payable: false,
+	    stateMutability: 'nonpayable',
+	    type: 'constructor' } ]
+	
+
+#### create new 'deployed' var, add a value field.
+
+The value field is the amount of ETH we want to send to the contract upon creation. If we put it in the constructor of the contract, this will send ETH to the contract on creation.
+
+	> var deployed = escrowContract.new(seller, arbiter, {
+	... from: buyer,
+	... data: bytecode,
+	... gas: 4700000,
+	... gasPrice: 5,
+	... value: web3.toWei(5, 'ether')
+	... }, (error, contract) => {})
+	undefined
+
+	> balance(deployed.address)
+	5
+	deployed.payoutToSeller({from: buyer})
+	// tx hash
+	> balance(seller)
+	105
+	balance(deployed.address)
+	0
+
+
+
