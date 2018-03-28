@@ -518,4 +518,69 @@ msg object contains information about the transaction that is calling into the c
 
 Access the address of whoever is calling the contract 
 
+### compile
+
+	> var Web3 = require("web3")
+	undefined
+	> var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
+	undefined
+	> var solc = require("solc")
+	undefined
+	> var source = `
+	... contract Escrow {
+	...
+	...     address public buyer;
+	...     address public seller;
+	...     address public arbiter;
+	...
+	...     // constructor
+	...     function Escrow(address _seller, address _arbiter) {
+	...         buyer = msg.sender; // assume the buyer is creating this Escrow contract
+	...         seller = _seller; // set the state variable of seller to the argument
+	...         arbiter = _arbiter; // set the state variable of arbiter to the argument
+	...     }
+	...
+	... }
+	... `
+	undefined
+	> var buyer = web3.eth.accounts[0] ; var seller = web3.eth.accounts[1] ; var arbiter = web3.eth.accounts[2]
+	undefined
+
+	> var compiled = solc.compile(source)
+	undefined
+	> var bytecode = compiled.contracts[":Escrow"].bytecode
+	undefined
+	> var abi = JSON.parse(compiled.contracts.Escrow.interface)
+	TypeError: Cannot read property 'interface' of undefined
+	> var abi = JSON.parse(compiled.contracts[":Escrow"].interface)
+	undefined
+	> abi
+	[ { constant: true,
+	    inputs: [],
+	    name: 'seller',
+	    outputs: [ [Object] ],
+	    payable: false,
+	    stateMutability: 'view',
+	    type: 'function' },
+	  { constant: true,
+	    inputs: [],
+	    name: 'buyer',
+	    outputs: [ [Object] ],
+	    payable: false,
+	    stateMutability: 'view',
+	    type: 'function' },
+	  { constant: true,
+	    inputs: [],
+	    name: 'arbiter',
+	    outputs: [ [Object] ],
+	    payable: false,
+	    stateMutability: 'view',
+	    type: 'function' },
+	  { inputs: [ [Object], [Object] ],
+	    payable: false,
+	    stateMutability: 'nonpayable',
+	    type: 'constructor' } ]
+	>
+
+In the abi object, we have functions created with the same names as the public variables previously declared. These are the GETter functions for those variables. We also have a constructor function.
 
