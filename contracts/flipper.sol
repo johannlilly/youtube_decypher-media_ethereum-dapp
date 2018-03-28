@@ -7,7 +7,9 @@ contract Flipper {
 	modifier onlyState(GameState expectedState) {
 		if(expectedState == currentState) {
 			_; // delegate to the function that uses this modifier.
-		} 
+		} else {
+			throw; 
+		}
 	}
 
 	function Flipper() {

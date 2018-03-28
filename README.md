@@ -808,3 +808,7 @@ valid GameState:
 We don't want to change state out of order, or when certain conditions haven't yet been met. Use a modifier. A *modifier* is a way for you to put reusable code into function definitions that can ensure some sort of data is valid before proceeding with the function.
 
 When writing the code for a modifier, when you include *_;* in a code block, you are saying to delegate to the function that uses this modifier. Think, replace *_;* with the definition of the function. 
+
+#### throw
+
+All state transitions (from a transaction) are atomic. Everything within a code block must be true for the block to work. You can't have a partial update. It all succeeds or fails together. *Throw* drains the transaction of all of its gas so that none of the state transitions are valid, so the entire thing is as if it never happened. 
