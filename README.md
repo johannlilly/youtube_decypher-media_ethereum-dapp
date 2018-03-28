@@ -405,3 +405,90 @@ BlockCypher: APIs for interacting with both Ethereum and Bitcoin blockchain. It 
 	> var solc = require("solc")
 	undefined
 
+	> var source = `contract HelloWorld {
+	...     function displayMessage() constant returns (string) {
+	.....         return "Hello from a smart contract";
+	.....     }
+	... }
+	... `
+	undefined
+	> source
+	'contract HelloWorld {\n    function displayMessage() constant returns (string) {\n        return "Hello from a smart contract";\n    }\n}\n'
+	> var compiled = solc.compile(source)
+	undefined
+	> compiled
+	{ contracts:
+	   { ':HelloWorld':
+	      { assembly: [Object],
+	        bytecode: '6060604052341561000f57600080fd5b6101578061001e6000396000f300606060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632d59dc1214610046575b600080fd5b341561005157600080fd5b6100596100d4565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561009957808201518184015260208101905061007e565b50505050905090810190601f1680156100c65780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100dc610117565b6040805190810160405280601b81526020017f48656c6c6f2066726f6d206120736d61727420636f6e74726163740000000000815250905090565b6020604051908101604052806000815250905600a165627a7a723058206d42a190f07f11596be998f1aa57d279dc34a2ed937b37ae1a8ca76a4f986fd20029',
+	        functionHashes: [Object],
+	        gasEstimates: [Object],
+	        interface: '[{"constant":true,"inputs":[],"name":"displayMessage","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]',
+	        metadata: '{"compiler":{"version":"0.4.21+commit.dfe3193c"},"language":"Solidity","output":{"abi":[{"constant":true,"inputs":[],"name":"displayMessage","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}],"devdoc":{"methods":{}},"userdoc":{"methods":{}}},"settings":{"compilationTarget":{"":"HelloWorld"},"evmVersion":"byzantium","libraries":{},"optimizer":{"enabled":false,"runs":200},"remappings":[]},"sources":{"":{"keccak256":"0x200c97b5a8d0d5aa1ac075ad1e9b052b605c23d356cd6ee292365ed72f6b8805","urls":["bzzr://d1c84f8748c0b04a85d8544aa3130f025ff1760f76163cb9a148ef819c229000"]}},"version":1}',
+	        opcodes: 'PUSH1 0x60 PUSH1 0x40 MSTORE CALLVALUE ISZERO PUSH2 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x157 DUP1 PUSH2 0x1E PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN STOP PUSH1 0x60 PUSH1 0x40 MSTORE PUSH1 0x4 CALLDATASIZE LT PUSH2 0x41 JUMPI PUSH1 0x0 CALLDATALOAD PUSH29 0x100000000000000000000000000000000000000000000000000000000 SWAP1 DIV PUSH4 0xFFFFFFFF AND DUP1 PUSH4 0x2D59DC12 EQ PUSH2 0x46 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST CALLVALUE ISZERO PUSH2 0x51 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x59 PUSH2 0xD4 JUMP JUMPDEST PUSH1 0x40 MLOAD DUP1 DUP1 PUSH1 0x20 ADD DUP3 DUP2 SUB DUP3 MSTORE DUP4 DUP2 DUP2 MLOAD DUP2 MSTORE PUSH1 0x20 ADD SWAP2 POP DUP1 MLOAD SWAP1 PUSH1 0x20 ADD SWAP1 DUP1 DUP4 DUP4 PUSH1 0x0 JUMPDEST DUP4 DUP2 LT ISZERO PUSH2 0x99 JUMPI DUP1 DUP3 ADD MLOAD DUP2 DUP5 ADD MSTORE PUSH1 0x20 DUP2 ADD SWAP1 POP PUSH2 0x7E JUMP JUMPDEST POP POP POP POP SWAP1 POP SWAP1 DUP2 ADD SWAP1 PUSH1 0x1F AND DUP1 ISZERO PUSH2 0xC6 JUMPI DUP1 DUP3 SUB DUP1 MLOAD PUSH1 0x1 DUP4 PUSH1 0x20 SUB PUSH2 0x100 EXP SUB NOT AND DUP2 MSTORE PUSH1 0x20 ADD SWAP2 POP JUMPDEST POP SWAP3 POP POP POP PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0xDC PUSH2 0x117 JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD SWAP1 DUP2 ADD PUSH1 0x40 MSTORE DUP1 PUSH1 0x1B DUP2 MSTORE PUSH1 0x20 ADD PUSH32 0x48656C6C6F2066726F6D206120736D61727420636F6E74726163740000000000 DUP2 MSTORE POP SWAP1 POP SWAP1 JUMP JUMPDEST PUSH1 0x20 PUSH1 0x40 MLOAD SWAP1 DUP2 ADD PUSH1 0x40 MSTORE DUP1 PUSH1 0x0 DUP2 MSTORE POP SWAP1 JUMP STOP LOG1 PUSH6 0x627A7A723058 KECCAK256 PUSH14 0x42A190F07F11596BE998F1AA57D2 PUSH26 0xDC34A2ED937B37AE1A8CA76A4F986FD200290000000000000000 ',
+	        runtimeBytecode: '606060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680632d59dc1214610046575b600080fd5b341561005157600080fd5b6100596100d4565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561009957808201518184015260208101905061007e565b50505050905090810190601f1680156100c65780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100dc610117565b6040805190810160405280601b81526020017f48656c6c6f2066726f6d206120736d61727420636f6e74726163740000000000815250905090565b6020604051908101604052806000815250905600a165627a7a723058206d42a190f07f11596be998f1aa57d279dc34a2ed937b37ae1a8ca76a4f986fd20029',
+	        srcmap: '0:133:0:-;;;;;;;;;;;;;;;;;',
+	        srcmapRuntime: '0:133:0:-;;;;;;;;;;;;;;;;;;;;;;;;26:105;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;26:105:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;70:6;;:::i;:::-;88:36;;;;;;;;;;;;;;;;;;;;26:105;:::o;0:133::-;;;;;;;;;;;;;;;:::o' } },
+	  errors:
+	   [ ':2:5: Warning: No visibility specified. Defaulting to "public".\n    function displayMessage() constant returns (string) {\n    ^ (Relevant source part starts here and spans across multiple lines).\n',
+	     ':1:1: Warning: Source file does not specify required compiler version!Consider adding "pragma solidity ^0.4.21;"\ncontract HelloWorld {\n^ (Relevant source part starts here and spans across multiple lines).\n',
+	     ':2:5: Warning: Function state mutability can be restricted to pure\n    function displayMessage() constant returns (string) {\n    ^ (Relevant source part starts here and spans across multiple lines).\n' ],
+	  sourceList: [ '' ],
+	  sources: { '': { AST: [Object] } } }
+
+	  > compiled.contracts.HelloWorld.bytecode
+	  > compiled.contracts.HelloWorld.opcodes
+	  > compiled.contracts.HellowWorld.interface
+	  > var abi = JSON.parse(compiled.contracts.HelloWorld.interface)
+	  undefined
+	  abi
+	  [ { constant: true,
+	  	  inputs: [],
+	  	  name: 'displayMessage',
+	  	  outputs: [ [Object ] ],
+	  	  payable: false,
+	  	  type: 'function' } ]
+
+Use [Remix - Solidity IDE](https://remix.ethereum.org) to get an estimate of how much gas you will need.
+
+	> var helloWorldContract = web3.eth.contract(abi)
+	undefined
+	var deployed = helloWorldContract.new({
+	... from: web3.eth.accounts[0],
+	... data: compiled.contracts.HelloWorld.bytecode,
+	... gas: 4700000,
+	... gasPrice: 5,
+		}, (error, contract) => {})
+	undefined
+
+If you check TestRPC. you will see a transaction ID as well as a contract address. Contracts have their own addresses, just like wallets.
+
+	// input bytecode of the transaction
+	> web3.eth.getTransaction(transactionID)
+
+Now the deployed object (var deployed = ...) returned from the contract creation call is a reference to the deployed contract on a network.
+
+	> deployed.address
+	// returns address of the contract
+
+	// in case you didn't capture that oject before, instantiate a new reference to it:
+	> helloWorldContract.at(address)
+
+Once you have the reference to the deployed contract, you can call functions on it that are publicly exposed. 
+
+	> deployed.displayMessage.call()
+	'Hello from a smart contract'
+
+here is the contract file:
+
+	contract HelloWorld {
+		function displayMessage() constant returns (string) {
+			return "Hello from a smart contract";
+		}
+	}
+
+*constant* indicates that the function will not modify state on the Ethereum network in any way, no matter how many times it is called. Everyone else's contracts won't be affected at all. When you call the function deployed.displayMessage.call(), the message "Hello from a smart contract" is returned to you in realtime without having to query the network. It can cache this locally. 
+
+	> deployed.displayMessage.call()
+	'Hello from a smart contract'
+
