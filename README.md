@@ -16,6 +16,7 @@ by Decypher Media
 - [Ultimate Intro to Ethereum Ðapp Development [Part 8] - Smart Contracts - Escrow](https://youtu.be/EbWKtDPFPz8)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 9] - Smart Contracts - Coin Flipper (1/2)](https://youtu.be/OFPBSKd6us8)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 10] - Smart Contracts - Coin Flipper (2/2)](https://youtu.be/dq-gBPvDgrc)
+- [Ultimate Intro to Ethereum Ðapp Development [Part 11] - Contract Inheritance](https://youtu.be/rY2JxxzIYb0)
 
 ## [Part 1] - Provisioning the Development Environment  
 
@@ -971,3 +972,6 @@ The *block hash* is a 64-digit string that is highly random. It is a hash of mul
 Account 1 won.
 
 > my numbers aren't exactly the same as in the video, I swapped ETH between accounts more than in the video.
+
+## [Part 11] - Contract Inheritance
+
