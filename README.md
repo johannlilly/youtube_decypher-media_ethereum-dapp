@@ -584,3 +584,28 @@ Access the address of whoever is calling the contract
 
 In the abi object, we have functions created with the same names as the public variables previously declared. These are the GETter functions for those variables. We also have a constructor function.
 
+	> var escrowContract = web3.eth.contract(abi)
+	undefined
+
+deploy contract, but don't pass in a data structure. We want the constructor to take in two parameters, so we pass them in first, then pass in the data structure.
+
+	> var deployed = escrowContract.new(seller, arbiter, {
+	... from: buyer,
+	... data: bytecode,
+	... gas: 4700000,
+	... gasPrice: 5,
+	... }, (error, contract) => {})
+	undefined
+
+Check for a contract address (meaning the transaction was mined)
+
+	> deployed.address
+	'0x674ededca93f8b5bbfd829d3120aedf6d1af2143'
+
+Query this for publicly accessible methods, then confirm by checking the buyer object value.
+
+	> deployed.buyer.call()
+	'0xbba627fba18f285597e89a2eec3a4274c1d033ce'
+	> buyer
+	'0xbba627fba18f285597e89a2eec3a4274c1d033ce'
+
