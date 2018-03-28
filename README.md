@@ -496,3 +496,4 @@ here is the contract file:
 
 ## [Part 8] - Smart Contracts - Escrow
 
+Contracts can have state that they store inside the contract and persist in the blockchain.
