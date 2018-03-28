@@ -4,6 +4,12 @@ contract Flipper {
 	// declare variable of type GameState
 	GameState public currentState;
 
+	modifier onlyState(GameState expectedState) {
+		if(expectedState == currentState) {
+			_; // delegate to the function that uses this modifier.
+		} 
+	}
+
 	function Flipper() {
 		currentState = GameState.noWager;
 	}

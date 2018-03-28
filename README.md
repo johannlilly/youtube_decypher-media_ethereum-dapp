@@ -805,4 +805,6 @@ valid GameState:
 
 ### state order using modifiers
 
-We don't want to change state out of order, or when certain conditions haven't yet been met. Use a modifier. A *modifier* is a way for you to put reusable code into function definitions that can ensure some sort of data is valid before proceeding with the function. 
+We don't want to change state out of order, or when certain conditions haven't yet been met. Use a modifier. A *modifier* is a way for you to put reusable code into function definitions that can ensure some sort of data is valid before proceeding with the function.
+
+When writing the code for a modifier, when you include *_;* in a code block, you are saying to delegate to the function that uses this modifier. Think, replace *_;* with the definition of the function. 
