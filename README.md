@@ -397,3 +397,11 @@ INFURA: Our easy to use API and developer tools provide secure, reliable, and sc
 BlockCypher: APIs for interacting with both Ethereum and Bitcoin blockchain. It gives us more in-depth ways of interacting with the Ethereum network than webRTC. You can use it to send ETH transactions from your command line using the curl command: [https://www.blockcypher.com/](https://www.blockcypher.com/)
 
 ## [Part 7] - Smart Contracts - Hello World
+
+	> var Web3 = require("web3")
+	undefined
+	> var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
+	undefined
+	> var solc = require("solc")
+	undefined
+
