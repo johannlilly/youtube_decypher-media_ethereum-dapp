@@ -55,4 +55,22 @@ Check the transaction on testnet.
 	> addr
 	'0x08cf02070bb9f167556c677da58e6678bbe871fc'
 
+## ETH Auction registrar - a better workflow
 
+Names can be:
+- available
+- up for auction
+- owned
+
+### available
+
+Cannot be purchased like with test registrar. It can only be put up for auction.
+
+	> ens.ethRegistrar.entries(web3.sha3("decyphertv"))[0].toNumber()
+	0
+
+- 0 indicates the name is available.
+- 1 indicates up for auction
+- 2 indicates purchased
+
+// reference this later
