@@ -28,4 +28,31 @@ Check if a name is registered by someone:
 	> ens.ens.owner(ens.namehash("decypher.test"))
 	'0xee82ddb350f48dd5712d54072172aa1a97c677c8' // ethereum address it is registered to
 
+Try to register. ens.testRegistrar is a reference to the deployed test registrar on testnet. You can register on someone's behalf.
+
+	> ens.testRegistrar.register("name","addr")
+
+	> var pKey = ""
+	undefined
+	> var pKeyx = new Buffer(pKey, "hex")
+	undefined
+	> var addr = ""
+	undefined
+	> decypher.callContract({
+	... deployed: ens.testRegistrar,
+	... methodName: "register",
+	... pKeyx: pKeyx,
+	... fromAddress: addr
+	... }, web3.sha3("decyphertv"), addr)
+	true
+	> TxHash...
+	(hash)
+
+Check the transaction on testnet.
+
+	> ens.ens.owner(ens.namehash("decyphertv.test"))
+	'0x08cf02070bb9f167556c677da58e6678bbe871fc'
+	> addr
+	'0x08cf02070bb9f167556c677da58e6678bbe871fc'
+
 
