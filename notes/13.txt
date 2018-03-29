@@ -1,1 +1,13 @@
 # [Part 13] - How to use the Ethereum Name Service (ENS)
+
+Resolve human-readable names to Ethereum addresses. What if you could send ETH to "decypher.eth" and the network would know how to resolve that to its corresponding address? This is like DNS for IP addresses. This is the idea of ENS. You must go through a registrar contract for this.
+
+## types of ENS
+
+FIFS (First In, First Served) Registrar: whoever buys first gets the domain name. But this leads to a rush to buy the most sought-after domain names, then squat on them. 
+
+Auction Registrar minimizes squatting, forcing registants to go through this registar first.
+
+As of this video, ENS is only deployed on Ropsten testnet. There, you register .test names. On main net, it will be .eth names.
+
+*ethereum-ens* is the node.js library, but as of this video, there are some issues. So, use a helper file, *./ensutils.js*. It contains public ABIs and contract addresses for ENS contracts. 
