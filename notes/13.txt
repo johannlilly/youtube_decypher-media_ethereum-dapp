@@ -11,3 +11,21 @@ Auction Registrar minimizes squatting, forcing registants to go through this reg
 As of this video, ENS is only deployed on Ropsten testnet. There, you register .test names. On main net, it will be .eth names.
 
 *ethereum-ens* is the node.js library, but as of this video, there are some issues. So, use a helper file, *./ensutils.js*. It contains public ABIs and contract addresses for ENS contracts. 
+
+## ENS namehash
+
+When you register a name, the name is not stored, but a hash of it is.
+
+	> ens.namehash("decypher.test")
+	'0x41c59478db88a77dbb0a8bd3fad243cb6efe6a863d6383f1076c0cb8b40bad44'
+
+Check if a name is registered by someone:
+
+	> ens.namehash("decyphertv.test")
+	'0xaa85fb1f74bdc6efe81fbc4b85e0ccfbab90c8c11f70e90ef198a51f2327ead4'
+	> ens.ens.owner(ens.namehash("decyphertv.test"))
+	'0x08cf02070bb9f167556c677da58e6678bbe871fc'
+	> ens.ens.owner(ens.namehash("decypher.test"))
+	'0xee82ddb350f48dd5712d54072172aa1a97c677c8' // ethereum address it is registered to
+
+
