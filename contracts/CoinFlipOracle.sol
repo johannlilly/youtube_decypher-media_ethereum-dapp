@@ -12,7 +12,8 @@ contract CoinFlipOracle is usingOraclize {
 
 	// this is the function oraclize will call on our contract
 	function __callback(bytes32 _oracleID, string _result) {
+		if(msg.sender != oraclize_cbAddress()) throw;
 		result = _result;
-	} 
+	}
 
 }
