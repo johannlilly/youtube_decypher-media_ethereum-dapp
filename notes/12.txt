@@ -24,3 +24,18 @@ In our example, having a variable ID allows us to work with oraclize across sepa
 	} 
 
 [Oraclize docs](http://docs.oraclize.it/#ethereum-quick-start-simple-query). You can pass Oraclize a URL or JSON parsed with JavaScript. It also pairs natively with services like IPFS and WolframAlpha. 
+
+
+1. Copy the code
+2. Paste into Remix IDE
+3. Compile
+4. Copy the bytecode
+5. Paste into [MyEtherWallet](https://myetherwallet.com)
+6. confirm, sign, run
+> connect to testnet via Infura and you can see the configuration
+7. copy ABI from Remix IDE and paste into node console
+
+	node ./decypher.js
+	> var contract = web3.eth.contract() // pass abi
+	> var deployed = contract.at("") // pass contract address
+
