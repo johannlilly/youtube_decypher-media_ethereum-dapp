@@ -8,3 +8,19 @@ callbacks are implemented with a double underscore:
 
 	function __callback() {} 
 
+In our example, having a variable ID allows us to work with oraclize across separate blocks:
+
+	string public result;
+	bytes32 public oraclizeID;
+
+	// send some ETH to oraclize to get an ID
+	function flipCoin() payable {
+		oraclizeID = oraclize_query("...");
+	}
+
+	// this is the function oraclize will call on our contract
+	function __callback(bytes32 _oracleID, string _result) {
+		result = _result;
+	} 
+
+[Oraclize docs](http://docs.oraclize.it/#ethereum-quick-start-simple-query). You can pass Oraclize a URL or JSON parsed with JavaScript. It also pairs natively with services like IPFS and WolframAlpha. 

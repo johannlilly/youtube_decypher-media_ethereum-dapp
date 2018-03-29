@@ -5,7 +5,7 @@ contract CoinFlipOracle is "..." {
 
 	// send some ETH to oraclize to get an ID
 	function flipCoin() payable {
-		oraclizeID = oraclize_query("...");
+		oraclizeID = oraclize_query("WolframAlpha","flip a coin");
 	}
 
 	// this is the function oraclize will call on our contract
