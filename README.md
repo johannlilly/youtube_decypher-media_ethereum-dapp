@@ -19,6 +19,7 @@ by Decypher Media
 - [Ultimate Intro to Ethereum Ðapp Development [Part 11] - Contract Inheritance](https://youtu.be/rY2JxxzIYb0)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 12] - Oracles and Oraclize](https://youtu.be/04WiDy_Of2A)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 13] - How to use the Ethereum Name Service (ENS)](https://youtu.be/9vHm7JJ7VvI)
+- [Ultimate Intro to Ethereum Ðapp Development [Part 14] - DecypherTV CLI](https://youtu.be/ekVliuvzonk)
 
 ## [Part 1] - Provisioning the Development Environment  
 
