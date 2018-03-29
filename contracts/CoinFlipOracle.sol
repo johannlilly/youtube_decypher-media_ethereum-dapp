@@ -1,6 +1,6 @@
 import "./OraclizeI.sol";
 
-contract CoinFlipOracle is "..." {
+contract CoinFlipOracle is usingOraclize {
 
 	string public result;
 	bytes32 public oraclizeID;
