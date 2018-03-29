@@ -1,3 +1,5 @@
+import "./OraclizeI.sol";
+
 contract CoinFlipOracle is "..." {
 
 	string public result;
