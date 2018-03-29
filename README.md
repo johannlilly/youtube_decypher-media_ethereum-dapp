@@ -17,6 +17,7 @@ by Decypher Media
 - [Ultimate Intro to Ethereum Ðapp Development [Part 9] - Smart Contracts - Coin Flipper (1/2)](https://youtu.be/OFPBSKd6us8)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 10] - Smart Contracts - Coin Flipper (2/2)](https://youtu.be/dq-gBPvDgrc)
 - [Ultimate Intro to Ethereum Ðapp Development [Part 11] - Contract Inheritance](https://youtu.be/rY2JxxzIYb0)
+- [Ultimate Intro to Ethereum Ðapp Development [Part 12] - Oracles and Oraclize](https://youtu.be/04WiDy_Of2A)
 
 ## [Part 1] - Provisioning the Development Environment  
 

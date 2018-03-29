@@ -1,0 +1,10 @@
+# [Part 12] - Oracles and Oraclize
+
+It might be useful to perform certain types of computation off-chain, then relay the results back onto the chain when it's done. This is where an Oracle comes in. It requires you to first call into the contract on the chain. The Oracle interacts with the outside world, then implements a callback with the contract. This may be in a different block.
+
+## Oraclize: a third-party oracle solution
+
+callbacks are implemented with a double underscore:
+
+	function __callback() {} 
+
