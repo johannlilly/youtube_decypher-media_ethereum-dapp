@@ -39,3 +39,11 @@ In our example, having a variable ID allows us to work with oraclize across sepa
 	> var contract = web3.eth.contract() // pass abi
 	> var deployed = contract.at("") // pass contract address
 
+Now you have access to the deployed contract on the testnet. For now, it's empty. It has only been initialized.
+
+	> deployed.result.call()
+	''
+
+
+Use [MyEtherWallet](https://myetherwallet.com) to interact with the contract. Pass the contract address and the ABI, then you are shown the available functions. You need to paste in the private key to unlock the wallet. Then, write the transaction. You are asked how much ETH you want to send with the contract call. You have to pass some ETH for the Oraclize service to work (see their documentation).
+
