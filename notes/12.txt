@@ -47,3 +47,8 @@ Now you have access to the deployed contract on the testnet. For now, it's empty
 
 Use [MyEtherWallet](https://myetherwallet.com) to interact with the contract. Pass the contract address and the ABI, then you are shown the available functions. You need to paste in the private key to unlock the wallet. Then, write the transaction. You are asked how much ETH you want to send with the contract call. You have to pass some ETH for the Oraclize service to work (see their documentation).
 
+After sending ETH, you get a transaction hash. Go to [Etherscan](https://testnet.etherscan.io) to view the transaction using the txhash. You can see the instantiated contract call, including ETH sent and the function as input data. There is another contract call that happens a few seconds later that is not instantiated by you, but rather by Oraclize. You can see that in the transaction information. The Oraclize service calling our callback function into the contract. The Oraclize service made a transaction into our contract. Verify with node:
+
+	> deployed.result.call()
+	'tails'
+
