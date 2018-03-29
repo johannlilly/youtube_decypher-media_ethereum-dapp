@@ -1,2 +1,42 @@
 # [Part 14] - DecypherTV CLI
 
+	npm install -g decyphertv@0.1.14
+
+The version changes depending on the video in the series.
+
+	decypher -m testrpc
+	Starting Decypher...
+	> acct1
+	'0xbba627fba18f285597e89a2eec3a4274c1d033ce'
+	> decypher.etherBalance(acct1)
+	93.02901999998525
+
+	decypher -m ropstem -i infuraKey // sign up for infura to get key
+	// private key
+	Starting Decypher...
+
+The REPL starts, but now it knows how to sign transactions to send to remote nodes. This way, you don't have to run your own node to interact with the actual testnet. 
+
+	> decypher.acct
+	// wallet address
+
+	> var source = `contract HelloWorld { function displayMessage() constant returns (string) {return "Hello world! from a testnet contract"; } }`
+	undefined
+	> ...
+	deploying contract HelloWorld
+	// etherscan address
+
+> I don't have any ETH in my ropsten account so I did not deploy like in the video.
+
+Once you get a transaction accress, head back to the terminal.
+
+	> var deployed = contract.at("") // tx
+	undefined
+
+You should now have access to the deployed contract on testnet
+
+	> deployed.displayMessage()
+	'Hello world! from a testnet contract'
+
+
+
